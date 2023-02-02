@@ -49,6 +49,46 @@ const restaurant = {
   },
 };
 
+/////////////////////////////////////////////
+// Logical Assignment Operators
+const rest1 = {
+  name: 'La Piazza',
+  //numGuest: 23,
+  numGuest: 0,
+};
+
+const rest2 = {
+  name: 'Pax Romana',
+  owner: 'Silvio Dante',
+};
+
+// OR assignment operator ||= - operator przypisania i wybrania truthy wartości jeśli pierwsza jest falsy
+//rest1.numGuest = rest1.numGuest || 10;
+//rest2.numGuest = rest2.numGuest || 10;
+
+//rest1.numGuest ||= 10; // 23 lub 10 jeśli numGuest: 0
+//rest2.numGuest ||= 10; // 10 bo pierwsza część wyrażenia jest falsy (undefined)
+
+// nullish assignment operator ??= - operator przypisania wartości, która nie jest nullish
+rest1.numGuest ??= 10; // 23 lub 0 jeśli numGuest: 0
+rest2.numGuest ??= 10; // 10 bo pierwsza część wyrażenia jest nullish (undefined  )
+
+//console.log(rest1);
+//console.log(rest2);
+
+// AND assignment operator - operator przypisania wartości tylko wtedy gdy pierwszy operand jest truthy
+//rest1.owner = rest1.owner && '<Anonymous'; // udefined
+//rest2.owner = rest2.owner && '<Anonymous'; // <Anonymous>
+
+// powyższy zapis można zastąpić następującym:
+rest1.owner &&= '<Anonymous';
+rest2.owner &&= '<Anonymous';
+
+console.log(rest1);
+console.log(rest2);
+
+///////////////////////////////////////////////////////////
+/*
 //Nullish Coalescing operator
 restaurant.numGuest = 0;
 const guest = restaurant.numGuest || 10;
@@ -58,6 +98,7 @@ const guestCorrect = restaurant.numGuest ?? 10;
 console.log(guestCorrect); // wyświetla 0 ponieważ 0 jest falsy, a nie nullish, podobnie jest z '';
 // Nullish: null oraz undefined
 // Short Circiting && and ||
+*/
 /*
 // <---- OR ---->
 // Wpisanie danych powoduje, że zwracane są dane
