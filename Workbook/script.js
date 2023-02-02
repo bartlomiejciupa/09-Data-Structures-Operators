@@ -42,14 +42,65 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngridient, ...otherIngridients) {
+    console.log(mainIngridient);
+    console.log(otherIngridients);
+  },
+};
+// 1) Destructuring
+/*
+// SPREAD użyty po prawej stronie znaku =
+const arr = [1, 2, ...[3, 4]]; // [1, 2, 3, 4]
+console.log(arr);
+
+//REST, użyty po lewej stronie znaku =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, ...others); // 1 2 3 4 5
+console.log(a, b, others); // 1 2 [3, 4, 5]
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, ...otherFood);
+console.log(pizza, risotto, otherFood);
+
+// OBJECTS
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+*/
+// 2) Functions
+//rest operator użyty do wstawienia wszystkich argumentów wpisanych przy wywoływaniu funkcji, bez względu na ich liczbę (gdy nie wiemy jaka będzie ilość zmiennych)
+const add = function (...numbers) {
+  // rest operator użyty w funkcji, pobranie wszystkich pojedynczych argumentów
+  //console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
 };
 
+add(2, 3);
+add(2, 3, 4, 5, 6);
+add(8, 2, 4, 5, 6, 7, 8);
+
+const x = [23, 5, 7];
+add(...x); // spread operator użyty w funkcji, rozsmarowanie elementów z arrayki i użycie jako argumenty
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+// mushrooms
+// ['onion', 'olives', 'spinach']
+
+// Spread operator vs rest operator: spread tam gdzie użylibyśmy wartości oddzielonych przecinkami, podczas gdy rest operator tam, gdzie zastępujemy wypiswanie nazw zmiennych odddzielone przecinkami.
+/*
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
-
-//Spread operator bierze elementy z tablicy i kolejno je wypisuje, (zastępując zapis z linii 43)
+*/
+//Spread operator bierze elementy z tablicy i kolejno je wypisuje, (zastępując zapis z linii 3 powyżej)
 //Spread operator różni się, tym, że bierze wszystkie elementy i wyciąga je na zewnątrz, nie tworząc nowych zmiennych, dlatego możemy użyć go w sytuacjach gdzie wartości oddzielone są przecinkami
+
+/*
 const newArr = [1, 2, ...arr];
 console.log(newArr);
 
@@ -73,6 +124,7 @@ const letters = [...str, ' ', 'S.']; // spread operator wziął string 'Jonas' i
 console.log(letters);
 console.log(...str); // --> J o n a s
 
+*/
 //Real exemple
 /*
 const ingredients = [
@@ -87,6 +139,7 @@ restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); //Here is
 // zamiast powyższego zapisu możemy zawołać tą funkcję w następujący sposób:
 restaurant.orderPasta(...ingredients); // Here is your delicious pasta with jeden, dwa and trzy
 */
+/*
 // Objects
 const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
 console.log(newRestaurant);
@@ -95,6 +148,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name); // Ristorante Roma
 console.log(restaurant.name); // Classico Italiano
+*/
 /*
 ////////////////////
 Destructuring Objects
