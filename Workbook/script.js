@@ -49,8 +49,16 @@ const restaurant = {
   },
 };
 
-// Short Circiting && and ||
+//Nullish Coalescing operator
+restaurant.numGuest = 0;
+const guest = restaurant.numGuest || 10;
+console.log(guest); // wyświetla 10 chociaż prawidłową wartością jest 0
 
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect); // wyświetla 0 ponieważ 0 jest falsy, a nie nullish, podobnie jest z '';
+// Nullish: null oraz undefined
+// Short Circiting && and ||
+/*
 // <---- OR ---->
 // Wpisanie danych powoduje, że zwracane są dane
 console.log(3 || 'Bartek'); //3
@@ -72,7 +80,7 @@ if (restaurant.orderPizza) {
 }
 //zamiast bloku if można użyć:
 restaurant.orderPizza && restaurant.orderPizza('pieczarki', 'salami');
-
+*/
 // OR operator zwróci pierwsze truthy wyrażenie, lub ostatnie wyrażenie jeśli wszystkie są falsy
 // AND operator zwórci pierwsze falsy wyrażenie, lub ostatnie wyrażenie jeśli wszystkie są truthy, możemy użyć do uruchomienia kodu w drugim operand, jesli pierwszy operand jest truthy
 
