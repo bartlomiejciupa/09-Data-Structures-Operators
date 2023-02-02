@@ -48,6 +48,34 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+
+// Short Circiting && and ||
+
+// <---- OR ---->
+// Wpisanie danych powoduje, że zwracane są dane
+console.log(3 || 'Bartek'); //3
+console.log('' || 'Bartek'); // 'Bartek'
+console.log(true || 0); // true
+console.log(undefined || null); // null <-- zwraca null, mimo, że null też jest falsy, bo zawsze jeśli pierwszy jest falsy to zwraca drugą stronę działania
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello' zwraca ponieważ jest to pierwsza truthy wartość w wyrażeniu
+
+// <---- AND ---->
+console.log(0 && 'Hello'); // 0
+console.log(7 && 'Hello'); // 'Hello'
+
+console.log('Hello' && 23 && null && 'Bartek'); // null ponieważ jest to pierwsza falsy wartość
+
+// Przykład praktyczny
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('pieczarki', 'salami'); // pieczarki ['salami']
+}
+//zamiast bloku if można użyć:
+restaurant.orderPizza && restaurant.orderPizza('pieczarki', 'salami');
+
+// OR operator zwróci pierwsze truthy wyrażenie, lub ostatnie wyrażenie jeśli wszystkie są falsy
+// AND operator zwórci pierwsze falsy wyrażenie, lub ostatnie wyrażenie jeśli wszystkie są truthy, możemy użyć do uruchomienia kodu w drugim operand, jesli pierwszy operand jest truthy
+
 // 1) Destructuring
 /*
 // SPREAD użyty po prawej stronie znaku =
@@ -71,6 +99,7 @@ const { sat, ...weekdays } = restaurant.openingHours;
 console.log(weekdays);
 */
 // 2) Functions
+/*
 //rest operator użyty do wstawienia wszystkich argumentów wpisanych przy wywoływaniu funkcji, bez względu na ich liczbę (gdy nie wiemy jaka będzie ilość zmiennych)
 const add = function (...numbers) {
   // rest operator użyty w funkcji, pobranie wszystkich pojedynczych argumentów
@@ -90,7 +119,7 @@ add(...x); // spread operator użyty w funkcji, rozsmarowanie elementów z array
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // mushrooms
 // ['onion', 'olives', 'spinach']
-
+*/
 // Spread operator vs rest operator: spread tam gdzie użylibyśmy wartości oddzielonych przecinkami, podczas gdy rest operator tam, gdzie zastępujemy wypiswanie nazw zmiennych odddzielone przecinkami.
 /*
 const arr = [7, 8, 9];
