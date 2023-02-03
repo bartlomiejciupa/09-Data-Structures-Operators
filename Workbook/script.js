@@ -57,6 +57,31 @@ const restaurant = {
   },
 };
 
+// Właściwość NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Właściwość WARTOŚCI
+const values = Object.values(openingHours);
+console.log(values);
+
+// Cały Obiekt
+const entries = Object.entries(openingHours);
+//console.log(entries);
+
+// [key, value]
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+/*
 if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon.open);
 
@@ -78,7 +103,8 @@ for (const day of days) {
   // console.log(day);
   const open = restaurant.openingHours[day]?.open ?? 'closed'; // Optional chaining oraz nullish coalescing działają razem, do tego zostały stworzone i polegają na koncepcji nullish, nie fasly
   console.log(`On ${day} we are ${open}`);
-  /*
+*/
+/*
   On mon we are closed
   On tue we are closed
   On wed we are closed
@@ -87,8 +113,10 @@ for (const day of days) {
   On sat we are 0
   On sun we are closed
   */
-}
 
+//}
+
+/*
 // Sprawdzanie czy METODA istnieje
 console.log(restaurant.order?.(0, 1) ?? "Method doesn't exist"); //['Focaccia', 'Pasta']
 console.log(restaurant.orderRisotto?.(0, 1) ?? "Method doesn't exist"); // zwraca undefined czyli wyświetla drugą stronę równania "Method doesn't exist"
@@ -103,7 +131,7 @@ if (users.length > 0) {
 } else {
   console.log('User array is empty');
 }
-
+*/
 /*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu) console.log(item);
