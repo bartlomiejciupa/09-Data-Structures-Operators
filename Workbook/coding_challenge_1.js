@@ -109,10 +109,10 @@ const printGoals = function (...players) {
   console.log(...players);
 };
 
-printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich', 'Burke');
-printGoals(...game.scored);
+//printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich', 'Burke');
+//printGoals(...game.scored);
 
 // 7;
 
-team1 < team2 && console.log('Team 1');
-team1 > team2 && console.log('Team 2');
+//team1 < team2 && console.log('Team 1');
+//team1 > team2 && console.log('Team 2');
