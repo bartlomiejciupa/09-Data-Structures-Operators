@@ -49,6 +49,7 @@ const restaurant = {
   },
 };
 
+/*
 /////////////////////////////////////////////
 // Logical Assignment Operators
 const rest1 = {
@@ -86,7 +87,7 @@ rest2.owner &&= '<Anonymous';
 
 console.log(rest1);
 console.log(rest2);
-
+*/
 ///////////////////////////////////////////////////////////
 /*
 //Nullish Coalescing operator
@@ -150,6 +151,7 @@ console.log(weekdays);
 // 2) Functions
 /*
 //rest operator użyty do wstawienia wszystkich argumentów wpisanych przy wywoływaniu funkcji, bez względu na ich liczbę (gdy nie wiemy jaka będzie ilość zmiennych)
+
 const add = function (...numbers) {
   // rest operator użyty w funkcji, pobranie wszystkich pojedynczych argumentów
   //console.log(numbers);
@@ -169,7 +171,7 @@ restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // mushrooms
 // ['onion', 'olives', 'spinach']
 */
-// Spread operator vs rest operator: spread tam gdzie użylibyśmy wartości oddzielonych przecinkami, podczas gdy rest operator tam, gdzie zastępujemy wypiswanie nazw zmiennych odddzielone przecinkami.
+// Spread operator vs rest operator: spread tam gdzie użylibyśmy wartości oddzielonych przecinkami, podczas gdy rest operator tam, gdzie zastępujemy wypisywanie nazw zmiennych odddzielone przecinkami.
 /*
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -268,12 +270,12 @@ console.log(o, c);
 */
 /*
 ///////////////
-Destructuring Arrays
-// const arr = [12, 22, 222];
+//Destructuring Arrays
+const arr = [12, 22, 222];
 
-// const [x, y, z] = arr;
+const [x, y, z] = arr;
 
-// console.log(x, y, z);
+console.log(x, y, z); // 12 22 222
 
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
