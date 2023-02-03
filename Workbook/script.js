@@ -5,7 +5,7 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const weekdays = ['mon', 'thu', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
     open: 12,
@@ -56,6 +56,53 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// OPTIONAL CHAINING ?.
+// funkcjonalność, która sprawdza prawidłowość wyrażenia, jeśli jest null lub undefined, zwraca undefined i nie wykonuje kodu dalej (zapobiega Errorom).
+
+//console.log(restaurant.openingHours.mon.open); // zwróci Uncaught TypeError: Cannot read properties of undefined (reading 'open')
+
+console.log(restaurant.openingHours.mon?.open); // tylko jeśli wartość sprzed ? istnieje, to dalsza część będzie czytana
+
+// Multi optional chaining:
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed'; // Optional chaining oraz nullish coalescing działają razem, do tego zostały stworzone i polegają na koncepcji nullish, nie fasly
+  console.log(`On ${day} we are ${open}`);
+  /*
+  On mon we are closed
+  On tue we are closed
+  On wed we are closed
+  On thu we are 12
+  On fri we are 11
+  On sat we are 0
+  On sun we are closed
+  */
+}
+
+// Sprawdzanie czy METODA istnieje
+console.log(restaurant.order?.(0, 1) ?? "Method doesn't exist"); //['Focaccia', 'Pasta']
+console.log(restaurant.orderRisotto?.(0, 1) ?? "Method doesn't exist"); // zwraca undefined czyli wyświetla drugą stronę równania "Method doesn't exist"
+
+// Sprawdzanie czy TABLICA jest pusta
+const users = [{ name: 'Bartek', email: 'bartek@gmail.com' }];
+
+console.log(users[0]?.name ?? 'User array is empty');
+// Powyższy zapis zastępuje:
+if (users.length > 0) {
+  console.log(users[0].name);
+} else {
+  console.log('User array is empty');
+}
 
 /*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -108,7 +155,7 @@ console.log(rest2);
 */
 ///////////////////////////////////////////////////////////
 /*
-//Nullish Coalescing operator
+//Nullish Coalescing operator ??
 restaurant.numGuest = 0;
 const guest = restaurant.numGuest || 10;
 console.log(guest); // wyświetla 10 chociaż prawidłową wartością jest 0
