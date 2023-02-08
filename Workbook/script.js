@@ -56,9 +56,67 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+const airline = 'Lot Polish Airline';
+console.log(airline.toLowerCase());
+console.log('WORKING WITH STRINGS'.toLowerCase());
+console.log(airline.toUpperCase());
 
+const passanger = 'BaRtEk';
+const passangerLower = passanger.toLowerCase();
+const passangerCorrect =
+  passangerLower[0].toUpperCase() + passangerLower.slice(1);
+console.log(passangerCorrect); // Bartek
+
+// Comparing email
+const email = 'hello@example.com';
+const loginEmail = '   hello@example.com \n'; // \n to znak Enter
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim(); // wycinanie niepotrzebnych znaków
+// console.log(trimmedEmail);
+const normalizedEmail = loginEmail.toLowerCase().trim(); // wersja w jednej linijce
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// replacing
+const priceGB = '234,98€';
+const priceUS = priceGB.replace(',', '.').replace('€', '$');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+
+// Booleans
+const plane = 'Airbus 320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Air'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snack and a gun for protection');
+
+/*
 /////////////////////////////////////////////
 // WORKING WITH STRINGS
+
 const airline = 'Lot Polish Airline';
 const plane = 'A320';
 
@@ -94,7 +152,7 @@ checkMiddleSeat('32C');
 checkMiddleSeat('32E');
 
 /// Dlaczego metody powyższe działają na stringach, jako na prymitywnych typach zmiennych? Ponieważ w momencie pojawienia się metody na stringu w JavaScript zachodzi ukryta konwersja na String Obiekt, jest to BOXING, czyli wkłada dany String do pudełka (BOXU)
-
+*/
 /*
 ////////////////////////////////////
 // MAPS ITERATION
