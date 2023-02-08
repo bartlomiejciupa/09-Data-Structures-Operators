@@ -56,6 +56,7 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+/*
 ////////////////////////////////////
 // MAPS ITERATION
 
@@ -91,7 +92,7 @@ console.log(...question); // to samo co ...question.entries()
 console.log(...question.entries()); // (2) ['question', 'What is the best programming language?'] (2) [1, 'C'] (2) [2, 'Java'] (2) [3, 'JavaScript'] (2) ['answer', 3] (2) [true, 'Correct!'] (2) [false, 'Try again!']
 console.log(...question.keys()); // question 1 2 3 answer true false
 console.log(...question.values()); //What is the best programming language? C Java JavaScript 3 Correct! Try again!
-
+*/
 ////////////////////////////////////////
 /*
 // MAPS przechowuje dane podobnie jak obiekt wraz z ich właściwością. różnica polega na tym, że kluczem może być nie tylko string, ale każdy typ danych
