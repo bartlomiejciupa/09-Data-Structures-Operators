@@ -56,7 +56,44 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+////////////////////////////////////
+// MAPS ITERATION
 
+const question = new Map([
+  ['question', 'What is the best programming language?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['answer', 3],
+  [true, 'Correct!'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//Quiz app
+console.log(question.get('question')); //What is the best programming language?
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`); // Answer 1: C Answer 2: Java Answer 3: JavaScript
+}
+const answer = Number(prompt('Your answer'));
+console.log(answer); // odpowiedź użytkownika
+
+console.log(question.get(question.get('answer') === answer)); // jeśli true to Correct!, jeśli false to Try again!
+
+// Convert map to array
+console.log(...question); // to samo co ...question.entries()
+console.log(...question.entries()); // (2) ['question', 'What is the best programming language?'] (2) [1, 'C'] (2) [2, 'Java'] (2) [3, 'JavaScript'] (2) ['answer', 3] (2) [true, 'Correct!'] (2) [false, 'Try again!']
+console.log(...question.keys()); // question 1 2 3 answer true false
+console.log(...question.values()); //What is the best programming language? C Java JavaScript 3 Correct! Try again!
+
+////////////////////////////////////////
+/*
 // MAPS przechowuje dane podobnie jak obiekt wraz z ich właściwością. różnica polega na tym, że kluczem może być nie tylko string, ale każdy typ danych
 
 const rest = new Map(); //utworzenie pustego zbioru metodą Map
@@ -91,7 +128,7 @@ rest.set(document.querySelector('h1'), 'Heading'); // dodanie elementu ze DOM st
 console.log(rest); //
 
 console.log(rest.get(arr)); // Test
-
+*/
 /*
 
 // SETS nowy sposób przedstawienia danych, który bierze pod uwagę jedynie unikalne wartości, nie ma znaczenia kolejność danych, jest podobna do array, natomiast nie ma takiej użyteczności, jest mniej metod
