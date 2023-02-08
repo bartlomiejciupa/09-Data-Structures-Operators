@@ -57,6 +57,43 @@ const restaurant = {
   },
 };
 
+// MAPS przechowuje dane podobnie jak obiekt wraz z ich właściwością. różnica polega na tym, że kluczem może być nie tylko string, ale każdy typ danych
+
+const rest = new Map(); //utworzenie pustego zbioru metodą Map
+rest.set('name', 'Classico Italiano'); // dodanie nowych elemntów do zbioru Map
+rest.set(1, 'Firenze, Italy'); // dodanie kolejnego elementu, gdzie kluczem jest liczba jeden
+console.log(rest.set(2, 'Lisbon, Portugal')); // dodane kolejnego elementu, gdzie kluczem jest liczba dwa, wynik: Map(3) {'name' => 'Classico Italiano', 1 => 'Firenze', 2 => 'Lisbon, Portugal'}
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name')); // wyświetlenie elementu ze zbioru Classico Italiano
+console.log(rest.get(true)); // We are open
+console.log(rest.get(1)); // Firenze, Italy
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); // dla time = 21 We are open || dla time =8  We are closed
+
+console.log(rest.has('categories')); // true
+rest.delete(2);
+// rest.clear(); // czyści zbiór
+console.log(rest); // usuwa pozycję z kluczem 2 z obiektu Map
+console.log(rest.size); // 7
+
+// rest.set([1, 2], 'Test'); // dodanie pozycji z kluczem array [1, 2], żeby zadziałało, trzeba je umieścić w zmiennej, bo zbiór nie jest tym samym elementem w dwóch różnych miejscach kodu:
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading'); // dodanie elementu ze DOM strony html klucz: 'h1' wartość: 'Heading'
+console.log(rest); //
+
+console.log(rest.get(arr)); // Test
+
+/*
+
 // SETS nowy sposób przedstawienia danych, który bierze pod uwagę jedynie unikalne wartości, nie ma znaczenia kolejność danych, jest podobna do array, natomiast nie ma takiej użyteczności, jest mniej metod
 const orderSet = new Set([
   'Pasta',
@@ -91,7 +128,7 @@ console.log(
 ); // 3
 
 console.log(new Set('bartomiejciupa').size); // 13, ponieważ pomija powtarzające się litery a oraz i
-
+*/
 /*
 // Właściwość NAMES
 const properties = Object.keys(openingHours);
