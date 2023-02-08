@@ -56,6 +56,61 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+/////////////////////////////////////////
+
+// Working with Strings - Part 3
+console.log('a+very+nice+string'.split('+'));
+console.log('Bartłomiej Ciupa'.split(' '));
+['Bartłomiej', 'Ciupa'];
+
+const [firstName, lastName] = 'Bartłomiej Ciupa'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName); // Mr. Bartłomiej Ciupa
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    //namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis'); // Jessica Ann Smith Davis
+capitalizeName('bartłomiej ciupa'); // Bartłomiej Ciupa
+capitalizeName('marianna ciupa'); // Marianna Ciupa
+
+// Padding - dodaje znaki do stringa do podanej w metodzie długości
+const message = 'go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(30, '+')); // +++++++++++go to gate 23!+++++
+console.log('Jonas'.padStart(25, '+').padEnd(30, '+')); // ++++++++++++++++++++Jonas+++++
+
+const maskCreditCard = function (number) {
+  const str = number + ''; // zmieniamy numer na String
+  const last = str.slice(-4); // wycinamy 4 ostatnie elementy ze Stringa
+  return last.padStart(str.length, '*'); // funkcja zwraca 4 elementy i resztę zapełnia podaną gwiazdkę do długości równej długości wszystkich znaków w Stringu (str)
+};
+
+console.log(maskCreditCard(224332432543555)); // ***********3555
+console.log(maskCreditCard(2243788900909676780)); // ***************6800
+console.log(maskCreditCard(22437889)); // ****7889
+
+// Repeat - powtarzanie tego samego stringa kilka razy
+
+const message2 = 'Bad weather... All Departues Delayed...';
+console.log(message2.repeat(5)); // 5 razy powtarza komunikat
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
+planesInLine(5); // There are 5 planes in line ✈✈✈✈✈
+planesInLine(2); // There are 2 planes in line ✈✈
+planesInLine(7); // There are 7 planes in line ✈✈✈✈✈✈✈
+
+///////////////////////////////////////////////
+/*
+// Working with Strings - Part 2
 const airline = 'Lot Polish Airline';
 console.log(airline.toLowerCase());
 console.log('WORKING WITH STRINGS'.toLowerCase());
@@ -112,7 +167,7 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snack and a gun for protection');
-
+*/
 /*
 /////////////////////////////////////////////
 // WORKING WITH STRINGS
