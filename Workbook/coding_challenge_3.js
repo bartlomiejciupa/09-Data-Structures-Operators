@@ -32,7 +32,7 @@ const gameEvents = new Map([
   [80, '⚽ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
-
+/*
 // 1.
 const events = [...new Set(gameEvents.values())];
 console.log(events);
@@ -64,3 +64,4 @@ for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
+*/

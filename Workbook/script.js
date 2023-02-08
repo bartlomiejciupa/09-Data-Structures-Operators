@@ -56,6 +56,45 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+
+/////////////////////////////////////////////
+// WORKING WITH STRINGS
+const airline = 'Lot Polish Airline';
+const plane = 'A320';
+
+console.log(plane[0]); // A
+console.log(plane[1]); // 3
+console.log(plane[2]); // 2
+console.log('B737'[3]); // 7
+
+console.log(airline.length); // 18
+console.log('B737'.length); // 4
+
+console.log(airline.indexOf('o')); // 1
+console.log(airline.lastIndexOf('o')); // 5
+console.log(airline.lastIndexOf('Lot')); // 0
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' '))); // wycięcie i stworzenie substringa z pierwszego wyrazu, niewiedząc jaką ma długość, szukamy za pomocą indexOf pierwszego wystąpienia spacji ' '
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // to samo co wyżej z ostatnim wyrazem
+
+console.log(airline.slice(-2)); // ne - liczy dwa miejsca od końca
+console.log(airline.slice(1, -1)); // ot Polish Airlin - liczy od drugiego i konczy na ostatnim
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat');
+  else console.log('You got lucky seat');
+};
+
+checkMiddleSeat('32B');
+checkMiddleSeat('32C');
+checkMiddleSeat('32E');
+
+/// Dlaczego metody powyższe działają na stringach, jako na prymitywnych typach zmiennych? Ponieważ w momencie pojawienia się metody na stringu w JavaScript zachodzi ukryta konwersja na String Obiekt, jest to BOXING, czyli wkłada dany String do pudełka (BOXU)
+
 /*
 ////////////////////////////////////
 // MAPS ITERATION
