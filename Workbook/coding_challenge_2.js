@@ -69,7 +69,7 @@ const games = {
     team2: 6.5,
   },
 };
-
+/*
 // 1.
 
 for (const [i, players] of games.scored.entries()) {
@@ -97,3 +97,4 @@ for (const [team, odd] of Object.entries(games.odds)) {
   const teamStr = team === 'x' ? 'draw' : `victory ${games[team]}`;
   console.log(`Odd of ${teamStr}: ${odd}`);
 }
+*/

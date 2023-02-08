@@ -57,6 +57,42 @@ const restaurant = {
   },
 };
 
+// SETS nowy sposób przedstawienia danych, który bierze pod uwagę jedynie unikalne wartości, nie ma znaczenia kolejność danych, jest podobna do array, natomiast nie ma takiej użyteczności, jest mniej metod
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(orderSet); // {"Pasta", "Pizza", "Risotto"}
+
+console.log(new Set('Bartłomiej')); // {"B", "a", "r", "t", "ł", "o", "m", "i", "e", "j"}
+
+console.log(orderSet.size); // 3
+console.log(orderSet.has('Pizza')); // true
+console.log(orderSet.has('Bread')); // false
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Risotto');
+//orderSet.clear();
+console.log(orderSet); // {"Pasta", "Pizza", "Garlic Bread"}
+
+for (const order of orderSet) console.log(order); // Pasta Pizza Garlic Bread
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique); // ["Waiter", "Chef", "Manager"]
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+); // 3
+
+console.log(new Set('bartomiejciupa').size); // 13, ponieważ pomija powtarzające się litery a oraz i
+
+/*
 // Właściwość NAMES
 const properties = Object.keys(openingHours);
 console.log(properties);
@@ -80,7 +116,7 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
-
+*/
 /*
 if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon.open);
